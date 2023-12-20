@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
+    <title>Antonella</title>
+</head>
+<body>
+    <!-- Add your video source here -->
+    <video id="myVideo" autoplay loop controls>
+        <source src="audio/La carta.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="overlay"></div>
+    <div class="heart"></div>
+    <div class="contenido" onclick="playPause()">
+        <h1>Florencia</h1>
+        <h2>Yunes</h2>
+    </div>
+
+    <script>
+        // Obtener referencia al video
+        var myVideo = document.getElementById("myVideo");
+
+        // Función para reproducir o pausar el video al hacer clic en el div "contenido"
+        function playPause() {
+            if (myVideo.paused) {
+                myVideo.play();
+            } else {
+                myVideo.pause();
+            }
+        }
+    </script>
+</body>
+</html>
+

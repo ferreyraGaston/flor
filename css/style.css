@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide the default scrollbar */
+    position: relative; /* Set position to relative for the overlay */
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1; /* Send the video behind other elements */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value for darkness (0 is transparent, 1 is opaque) */
+    z-index: 0; /* Place the overlay behind the content */
+}
+
+.heart {
+    height: 150px;
+    width: 150px;
+    background-color: rgb(252, 4, 4);
+    position: relative;
+    transform: rotate(45deg);
+    box-shadow: -20px 20px 150px #f20044;
+    animation: palpitar 0.5s linear infinite alternate;
+    z-index: 1; /* Make sure the heart is above the overlay */
+}
+
+.contenido {
+    position: fixed;
+    margin-bottom: 50px;
+    text-align: center;
+    z-index: 2; /* Make sure the content is above the overlay and heart */
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+@keyframes palpitar {
+    0% {
+        transform: rotate(45deg) scale(1.10);
+    }
+
+    80% {
+        transform: rotate(45deg) scale(1.0);
+    }
+
+    100% {
+        transform: rotate(45deg) scale(0.8);
+    }
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: rgb(252, 4, 4);
+    border-radius: 50%;
+    box-shadow: 20px 20px 150px #f20044;
+}
+
+.heart::before {
+    right: 50%;
+}
+
+.heart::after {
+    top: -50%;
+}
